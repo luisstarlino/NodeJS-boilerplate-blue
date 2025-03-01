@@ -7,6 +7,7 @@
 // ===== IMPORTS
 import express, { json, Request, Response } from 'express';
 import cors from 'cors';
+import { httpHelper } from './common/helpers';
 
 const createApp = () => {
     const app = express();
@@ -18,7 +19,7 @@ const createApp = () => {
     // === Add routes here
     app.get('/', async (_: Request, resp: Response) => {
 
-        resp.status(200).json({message: "Welcome to Blue Template!"});
+        httpHelper.send(resp, httpHelper.OK({message: "Welcome to Blue Template!"}));
     })
 
     // === build
